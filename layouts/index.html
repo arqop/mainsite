@@ -7,6 +7,7 @@
     <meta name="description" content="ARQOP is a personal cryptocurrency infrastructure archive: nodes, pools, explorers, and the work of keeping networks usable.">
     <title>{{ site.Title }} — Archive, Relay, Query, Operate, Preserve</title>
     <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
+    <link rel="stylesheet" href="{{ "css/contact.css" | relURL }}">
   </head>
   <body>
     <main class="page-shell">
@@ -16,6 +17,7 @@
           <a href="#mission">Project</a>
           <a href="#services">What runs</a>
           <a href="#status">Status</a>
+          <a href="#contact">Contact</a>
         </nav>
         <span class="topbar-domain">ARQOP.ORG</span>
       </header>
@@ -85,6 +87,23 @@
           <p class="body-copy">ARQOP is consolidating an existing multi-chain setup before publishing connection details. The latest host audit recorded 30 coin daemons and three supporting services. Nine of the 30 tested networks accepted an external IPv4 P2P connection; tested IPv6 connections did not succeed.</p>
           <p class="body-copy">Those readings are a dated snapshot, not a live status feed. Chain sync, public reachability, mining support, and explorer readiness are checked separately before a service is described as ready.</p>
           <div class="stats" aria-label="Latest audit figures"><div><strong>30</strong><span>coin daemons<br>on audited host</span></div><div><strong>09<span>/30</span></strong><span>external IPv4<br>P2P connections</span></div><div><strong>03</strong><span>supporting<br>services</span></div></div>
+        </div>
+      </section>
+
+      <section class="contact section-grid" id="contact" aria-labelledby="contact-title">
+        <p class="section-index">05 / CONTACT</p>
+        <div class="section-main">
+          <p class="kicker">Questions, corrections, or notes from the network edge.</p>
+          <h2 id="contact-title">Get in touch.</h2>
+          <p class="body-copy">For project inquiries, email <a class="contact-email" href="mailto:contact@arqop.org">contact@arqop.org</a>.</p>
+          <div class="contact-key">
+            <div>
+              <p class="key-label">OPENPGP PUBLIC KEY</p>
+              <p class="key-fingerprint">6416 7260 5415 C2F7 DBB6 99E4 496F D08B 7988 DD7D</p>
+            </div>
+            <a class="primary-link" href="{{ "keys/contact@arqop.org.asc" | relURL }}" download>Download public key <span aria-hidden="true">↓</span></a>
+          </div>
+          <p class="key-note">Use this key to encrypt email to contact@arqop.org. Verify the fingerprint before use.</p>
         </div>
       </section>
 

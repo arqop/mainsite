@@ -1,0 +1,15 @@
+.contact.section-grid{padding-top:72px;border-top:1px solid var(--line);border-bottom:0}
+.contact-email{color:var(--acid);text-decoration:none}
+.contact-email:hover{text-decoration:underline}
+.contact-key{display:flex;align-items:flex-end;justify-content:space-between;gap:28px;max-width:790px;margin-top:36px;padding-top:22px;border-top:1px solid var(--line)}
+.key-label{margin:0 0 10px;color:#89968a;font:9px var(--mono);letter-spacing:.07em}
+.key-fingerprint{margin:0;color:var(--ink);font:11px/1.8 var(--mono);overflow-wrap:anywhere}
+.contact-key .primary-link{flex:none}
+.key-note{margin:15px 0 0;color:#929d92;font-size:11px;line-height:1.7}
+
+@media(max-width:560px){
+  .contact.section-grid{padding-top:54px}
+  .contact-key{align-items:flex-start;flex-direction:column}
+  .contact-key .primary-link{width:100%;justify-content:space-between}
+  .key-fingerprint{font-size:9px}
+}
