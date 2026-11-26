@@ -1,0 +1,4 @@
+baseURL = 'https://argop.org/'
+locale = 'en-us'
+title = 'Home of the ARQOP'
+disableKinds = ['taxonomy', 'term']

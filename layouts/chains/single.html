@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="{{ site.Language.Locale | default "en" }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101713">
+    <meta name="description" content="{{ .Params.summary }} Why ARQOP keeps a record of {{ .Title }}.">
+    <title>{{ .Title }} — ARQOP Chain Archive</title>
+    <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
+  </head>
+  <body>
+    <main class="page-shell profile-shell">
+      <header class="topbar">
+        <a class="wordmark" href="{{ site.Home.RelPermalink }}" aria-label="ARQOP home"><span class="mark">A</span> ARQOP</a>
+        <nav aria-label="Main navigation"><a href="#history">History</a><a href="#preservation">Why preserve</a><a href="#status">Record</a></nav>
+        <a class="topbar-domain" href="{{ "#directory" | relURL }}">ALL NETWORKS ↗</a>
+      </header>
+      <section class="profile-hero">
+        <a class="back-link" href="{{ "#directory" | relURL }}">← NETWORK ARCHIVE</a>
+        <p class="eyebrow"><span class="status-dot"></span> Chain record</p>
+        <h1>{{ .Title }}</h1>
+        <p class="profile-summary">{{ .Params.summary }}</p>
+        <div class="profile-state"><span class="chain-status status-{{ urlize .Params.status }}">{{ .Params.status }}</span><span class="audit-date">LATEST NOTES<br>NOVEMBER 2026</span></div>
+      </section>
+      <section class="profile-content" id="history">
+        <p class="section-index">01 / HISTORY</p>
+        <div><h2>What came before.</h2><p class="body-copy">{{ .Params.history }}</p></div>
+      </section>
+      <section class="profile-content" id="preservation">
+        <p class="section-index">02 / WHY IT’S HERE</p>
+        <div><h2>Why ARQOP keeps a record.</h2><p class="body-copy">{{ .Params.why }}</p></div>
+      </section>
+      <section class="profile-content profile-record" id="status">
+        <p class="section-index">03 / OPERATING RECORD</p>
+        <div><h2>A dated snapshot.</h2><p class="body-copy">The label “{{ .Params.status }}” reflects the project’s last recorded evidence in November 2026. It is not a live status check. Node health, chain continuity, public reachability, mining support, and explorer availability are assessed separately.</p><p class="record-next">This profile can grow with verified checkpoints, software lineage, recovery notes, and service changes.</p></div>
+      </section>
+      <nav class="profile-pagination" aria-label="Browse other networks">
+        {{ with .PrevInSection }}<a href="{{ .RelPermalink }}"><span>← PREVIOUS RECORD</span><strong>{{ .Title }}</strong></a>{{ end }}
+        {{ with .NextInSection }}<a class="next" href="{{ .RelPermalink }}"><span>NEXT RECORD →</span><strong>{{ .Title }}</strong></a>{{ end }}
+      </nav>
+      <footer class="footer"><a class="wordmark" href="{{ site.Home.RelPermalink }}"><span class="mark">A</span> ARQOP</a><a href="{{ site.Home.RelPermalink }}#directory">BACK TO THE NETWORK ARCHIVE ↑</a><span>BEST-EFFORT NETWORK PRESERVATION</span></footer>
+    </main>
+  </body>
+</html>

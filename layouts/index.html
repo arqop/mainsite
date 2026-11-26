@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="{{ site.Language.Locale | default "en" }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101713">
+    <meta name="description" content="ARQOP is a personal cryptocurrency infrastructure archive: nodes, pools, explorers, and the work of keeping networks usable.">
+    <title>{{ site.Title }} — Archive, Relay, Query, Operate, Preserve</title>
+    <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="topbar">
+        <a class="wordmark" href="{{ site.Home.RelPermalink }}" aria-label="ARQOP home"><span class="mark">A</span> ARQOP</a>
+        <nav aria-label="Main navigation">
+          <a href="#mission">Project</a>
+          <a href="#services">What runs</a>
+          <a href="#status">Status</a>
+        </nav>
+        <span class="topbar-domain">ARQOP.ORG</span>
+      </header>
+
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot"></span> Independent network preservation</p>
+          <h1 id="hero-title">Old chains.<br><em>Still in reach.</em></h1>
+          <p class="intro">ARQOP is a personal cryptocurrency infrastructure archive. We run nodes, keep useful network services available, and document what it takes to maintain them.</p>
+          <a class="primary-link" href="#directory">Explore the archive <span aria-hidden="true">↘</span></a>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="core">A<span>R</span></div>
+          <div class="node node-a"></div><div class="node node-b"></div><div class="node node-c"></div><div class="node node-d"></div>
+          <span class="art-label label-top">PEER / 01</span><span class="art-label label-bottom">NETWORK ARCHIVE</span>
+        </div>
+        <div class="hero-foot"><span>ARCHIVE · RELAY · QUERY · OPERATE · PRESERVE</span><span>FIELD NOTES FROM THE NETWORK EDGE <b>↓</b></span></div>
+      </section>
+
+      {{ with site.GetPage "chains" }}
+      <section class="directory" id="directory" aria-labelledby="directory-title">
+        <div class="directory-head">
+          <div><p class="section-index">01 / THE ARCHIVE</p><h2 id="directory-title">Networks in the record.</h2><p>Every chain has its own page for its history, current evidence, and why ARQOP keeps it.</p></div>
+          <label class="search-box"><span aria-hidden="true">⌕</span><input id="chain-search" type="search" placeholder="Find a network" autocomplete="off"><span class="search-key">⌘ K</span></label>
+        </div>
+        <p class="directory-count"><strong>{{ len .RegularPages }}</strong> NETWORK RECORDS <span>·</span> STATUS IS BASED ON DATED NOTES, NOT LIVE MONITORING</p>
+        <div class="chain-grid" id="chain-grid">
+          {{ range .RegularPages.ByTitle }}
+          <a class="chain-card" href="{{ .RelPermalink }}" data-chain="{{ lower .Title }}">
+            <span class="chain-name">{{ .Title }}</span>
+            <span class="chain-status status-{{ urlize .Params.status }}">{{ .Params.status }}</span>
+            <span class="chain-summary">{{ .Params.summary }}</span>
+            <span class="chain-arrow" aria-hidden="true">↗</span>
+          </a>
+          {{ end }}
+        </div>
+        <p class="no-results" id="no-results" hidden>No chain matches that search.</p>
+      </section>
+      {{ end }}
+
+      <section class="mission section-grid" id="mission">
+        <p class="section-index">02 / THE PROJECT</p>
+        <div class="section-main">
+          <p class="kicker">A working archive, not a promise of permanence.</p>
+          <h2>Keep the network<br>usable. Record the work.</h2>
+          <p class="body-copy">Interesting cryptocurrency networks can outlast the services and documentation around them. ARQOP works to keep selected chains connected and understandable by operating infrastructure and preserving practical knowledge about each one.</p>
+          <p class="body-copy">This is a best-effort engineering project. There is no formal uptime commitment, token, or plan to issue a coin. Every chain is evaluated on its own history, current condition, and the effort needed to support it responsibly.</p>
+        </div>
+      </section>
+
+      <section class="services" id="services">
+        <div class="section-heading"><p class="section-index">03 / THE STACK</p><h2>One chain at a time.</h2><p>Each network gets the services that make sense for its software and current condition.</p></div>
+        <div class="service-grid">
+          <article class="service-card"><span class="card-number">01</span><div class="card-symbol">↗</div><h3>Node</h3><p>Validate the chain, follow its peers, and keep a local record of network health.</p><span class="card-tag">DAEMON · P2P</span></article>
+          <article class="service-card"><span class="card-number">02</span><div class="card-symbol">⌁</div><h3>Pool</h3><p>Where algorithms and software allow, make mining practical and document how to connect.</p><span class="card-tag">STRATUM · MINING</span></article>
+          <article class="service-card"><span class="card-number">03</span><div class="card-symbol">⌕</div><h3>Explorer</h3><p>Index chain data when the network is sufficiently verified and the service can be maintained.</p><span class="card-tag">INDEX · QUERY</span></article>
+          <article class="service-card"><span class="card-number">04</span><div class="card-symbol">▤</div><h3>Field notes</h3><p>Keep the configuration details, connection instructions, history, and known limitations close at hand.</p><span class="card-tag">RECORD · PRESERVE</span></article>
+        </div>
+        <p class="service-note"><span class="note-dot"></span> These are the project’s service goals. Profiles document the research; public connection details will appear only after the service is checked and ready to publish.</p>
+      </section>
+
+      <section class="status section-grid" id="status">
+        <p class="section-index">04 / WHERE THINGS STAND</p>
+        <div class="section-main">
+          <div class="status-head"><div><p class="kicker">Inventory and validation underway</p><h2>Built from what<br>is actually running.</h2></div><span class="audit-date">LATEST STACK AUDIT<br>25 NOV 2026</span></div>
+          <p class="body-copy">ARQOP is consolidating an existing multi-chain setup before publishing connection details. The latest host audit recorded 30 coin daemons and three supporting services. Nine of the 30 tested networks accepted an external IPv4 P2P connection; tested IPv6 connections did not succeed.</p>
+          <p class="body-copy">Those readings are a dated snapshot, not a live status feed. Chain sync, public reachability, mining support, and explorer readiness are checked separately before a service is described as ready.</p>
+          <div class="stats" aria-label="Latest audit figures"><div><strong>30</strong><span>coin daemons<br>on audited host</span></div><div><strong>09<span>/30</span></strong><span>external IPv4<br>P2P connections</span></div><div><strong>03</strong><span>supporting<br>services</span></div></div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <a class="wordmark" href="{{ site.Home.RelPermalink }}"><span class="mark">A</span> ARQOP</a>
+        <span>ARCHIVE, RELAY, QUERY, OPERATE, PRESERVE</span>
+        <span>BEST-EFFORT NETWORK PRESERVATION</span>
+      </footer>
+    </main>
+    <script>
+      const search = document.querySelector('#chain-search');
+      const cards = [...document.querySelectorAll('.chain-card')];
+      const empty = document.querySelector('#no-results');
+      search?.addEventListener('input', () => {
+        const query = search.value.trim().toLowerCase();
+        let shown = 0;
+        cards.forEach(card => {
+          const match = card.dataset.chain.includes(query);
+          card.hidden = !match;
+          if (match) shown++;
+        });
+        empty.hidden = shown !== 0;
+      });
+      document.addEventListener('keydown', event => {
+        if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
+          event.preventDefault(); search?.focus();
+        }
+      });
+    </script>
+  </body>
+</html>

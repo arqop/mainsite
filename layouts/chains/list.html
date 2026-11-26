@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="{{ site.Language.Locale | default "en" }}">
+  <head>
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101713"><title>Network Archive — ARQOP</title>
+    <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="topbar"><a class="wordmark" href="{{ site.Home.RelPermalink }}"><span class="mark">A</span> ARQOP</a><nav><a href="{{ site.Home.RelPermalink }}#mission">Project</a><a href="{{ site.Home.RelPermalink }}#status">Status</a></nav><span class="topbar-domain">NETWORK ARCHIVE</span></header>
+      <section class="archive-page-head"><a class="back-link" href="{{ site.Home.RelPermalink }}">← ARQOP HOME</a><p class="eyebrow"><span class="status-dot"></span> {{ len .RegularPages }} chain records</p><h1>Network<br><em>archive.</em></h1><p>{{ .Description }}</p></section>
+      <div class="chain-grid archive-grid">{{ range .RegularPages.ByTitle }}<a class="chain-card" href="{{ .RelPermalink }}"><span class="chain-name">{{ .Title }}</span><span class="chain-status status-{{ urlize .Params.status }}">{{ .Params.status }}</span><span class="chain-summary">{{ .Params.summary }}</span><span class="chain-arrow" aria-hidden="true">↗</span></a>{{ end }}</div>
+      <footer class="footer"><a class="wordmark" href="{{ site.Home.RelPermalink }}"><span class="mark">A</span> ARQOP</a><span>ARCHIVE, RELAY, QUERY, OPERATE, PRESERVE</span><a href="{{ site.Home.RelPermalink }}">HOME ↑</a></footer>
+    </main>
+  </body>
+</html>
